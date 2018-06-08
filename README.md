@@ -1,24 +1,67 @@
-# MEAN-stack-application--Time-management-System
+# jQuery
 
-This is a group project done in my masters.We developed time management system for employees and employers to check and maintian their time sheets.
-They can also view the number of hours they worked etc.
-Here is the abstract  of our project.
+> jQuery is a fast, small, and feature-rich JavaScript library.
 
-You are tasked with building a new time and attendance management system (TMS). The new system will replace an old system, so some of the underlying data already exists.
+For information on how to get started and how to use jQuery, please see [jQuery's documentation](http://api.jquery.com/).
+For source files and issues, please visit the [jQuery repo](https://github.com/jquery/jquery).
 
-TMS maintains records of all employees with their personal information, job position data, salary, and pay-related data. These records will be initially populated from the old database.
+If upgrading, please see the [blog post for 3.3.1](https://blog.jquery.com/2017/03/20/jquery-3.3.1-now-available/). This includes notable differences from the previous version and a more readable changelog.
 
-New in TMS will be that every employee is assigned to one or more projects. Each project has at least one employee. One employee must the supervisor for the project. The old system did not capture projects. A project must exist for any work-related activity an employee can undertake.
+## Including jQuery
 
-The central feature of TMS will be to allow employees to record their time at work. Time worked is captured on daily timesheets. All work time is recorded as “from” and “to” time (in quarter hour increments) and must be assigned to an existing project. Employees can view all their timesheets but can only edit the current and previous weeks.
+Below are some of the most common ways to include jQuery.
 
-TMS features an administrator, which can add, remove and change employee and project records. The administrator also sets or changes the supervising employee for each project.
+### Browser
 
-Project supervisors can add and remove employees from their projects. Supervisors can also view the timesheets of all employees that belong to their projects. Supervisors can also generate summaries per project listing which employees worked how many hours. The time period for the summaries can be daily, weekly, monthly, or based on a “day-from” and “day-to” interval.
+#### Script tag
 
-Security is very important in TMS. Each employee will get a user-id and password, which is maintained by the administrator. Employees must login before they can enter or view their timesheets or perform supervisor duties. TMS will be preconfigured with one administrator account.
+```html
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+```
 
-      Since we can choose any framework of our choice,We used Express framework and angular to build the front end part with Node server and 
- Used MongoDB database for the back end.
- 
- We successfully managed to complete it and really enjoyed doing this project. 
+#### Babel
+
+[Babel](http://babeljs.io/) is a next generation JavaScript compiler. One of the features is the ability to use ES6/ES2015 modules now, even though browsers do not yet support this feature natively.
+
+```js
+import $ from "jquery";
+```
+
+#### Browserify/Webpack
+
+There are several ways to use [Browserify](http://browserify.org/) and [Webpack](https://webpack.github.io/). For more information on using these tools, please refer to the corresponding project's documention. In the script, including jQuery will usually look like this...
+
+```js
+var $ = require("jquery");
+```
+
+#### AMD (Asynchronous Module Definition)
+
+AMD is a module format built for the browser. For more information, we recommend [require.js' documentation](http://requirejs.org/docs/whyamd.html).
+
+```js
+define(["jquery"], function($) {
+
+});
+```
+
+### Node
+
+To include jQuery in [Node](nodejs.org), first install with npm.
+
+```sh
+npm install jquery
+```
+
+For jQuery to work in Node, a window with a document is required. Since no such window exists natively in Node, one can be mocked by tools such as [jsdom](https://github.com/tmpvar/jsdom). This can be useful for testing purposes.
+
+```js
+require("jsdom").env("", function(err, window) {
+	if (err) {
+		console.error(err);
+		return;
+	}
+
+	var $ = require("jquery")(window);
+});
+```
