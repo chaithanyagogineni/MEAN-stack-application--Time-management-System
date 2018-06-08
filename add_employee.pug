@@ -1,0 +1,31 @@
+extends admin-header
+
+block content
+  .container
+    h1 #{title}
+    .container
+      form(method='post', action='add_employee/add')
+        .form-group
+          label User ID
+          input.form-control(type='text', name='userid', placeholder='USER ID',required = 'true')
+        .form-group
+          label Password
+          input.form-control(type='password', name='password', placeholder='PASSWORD',required = 'true')
+        .form-group
+          label Full Name
+          input.form-control(type='text', name='name', placeholder='NAME',required = 'true')
+        .form-group
+          label Address
+          input.form-control(type='textarea', name='address', placeholder='ADDRESS',required = 'true')
+        .form-group
+          label Email
+          input.form-control(type='email', name='email', placeholder='EMAIL',required = 'true')
+        .form-group
+          label Job Title
+          input.form-control(type='text', name='jobtitle', placeholder='JOB TITLE',required = 'true')
+        .form-group
+          label Salary
+          input.form-control(type='text', name='salary', placeholder='SALARY',required = 'true')
+        button.btn.btn-primary(type='submit') ADD
+        a.btn.btn-danger.pull-right(href='/') Back
+    br
