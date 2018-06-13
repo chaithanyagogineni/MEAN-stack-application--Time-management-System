@@ -1,0 +1,34 @@
+extends admin-header
+
+block content
+
+  h1 Welcome #{title} ,Logged in as Admin
+  h1
+
+  u Employee
+    .container
+      ul
+        li
+          a.btn.btn-info(href='/add_employee', role='button') Add Employee
+        br
+        li
+
+          a.btn.btn-info(href='/manage_employees', role='button') Manage Employee
+  h1
+  u Project
+    .container
+      ul
+        li
+          a.btn.btn-info(href='/add_project', role='button') Add Project
+        br
+        li
+          a.btn.btn-info(href='/manage_projects', role='button') Manage Project
+  h1
+  u Timesheets
+    .container
+      ul
+        li
+          a.btn.btn-info(href='/manage_admin_timesheet', role='button') Manage TimeSheet
+        br
+        li
+          a.btn.btn-info(href='/get_timesheets', role='button') Get TimeSheet Summary

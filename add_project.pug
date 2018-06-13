@@ -1,0 +1,29 @@
+extends admin-header
+
+block content
+  .container
+    h1 #{title}
+    .container
+      form(method='post', action='add_project/add')
+        .form-group
+          label Title
+          input.form-control(type='text', name='title', placeholder='TITLE', required = 'true')
+        .form-group
+          label Budget
+          input.form-control(type='text', name='budget', placeholder='BUDGET',required = 'true')
+        .form-group
+          label Customer
+          input.form-control(type='text', name='customer', placeholder='CUSTOMER',required = 'true')
+        .form-group
+          label Select Supervisor
+          select(name='select_supervisor',required = 'true')
+            each employee, i in employees
+              option(value=employee.name) Name : #{employee.name} Email : #{employee.email}
+        .form-group
+          label Select Employees
+          select(name='select_employee',multiple='',required = 'true')
+            each employee, i in employees
+              option(value=employee) Name : #{employee.name} Email: #{employee.email}
+        button.btn.btn-primary(type='submit') ADD
+        a.btn.btn-danger.pull-right(href='/') Back
+    br
