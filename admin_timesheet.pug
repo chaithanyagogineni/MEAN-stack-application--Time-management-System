@@ -1,0 +1,22 @@
+extends admin-header
+
+block content
+  u Timesheet
+  .container
+    form(method='post', action='/admin_timesheet')
+      .form-group
+        h1
+          label Project
+        input.form-control(type='text', name='project_name',value=project,readonly='')
+        h1
+          label Date
+        input.form-control(type='text', name='timesheet_date',value=date,readonly='')
+        h1
+          label From Time:
+        input.form-control(type='time', name='timesheet_from_date',required='true')
+        h1
+          label To Time:
+        input.form-control(type='time', name='timesheet_to_date',required='true')
+
+      button.btn.btn-primary(type='submit') Manage TimeSheet
+      a.btn.btn-danger.pull-right(href='/manage_admin_timesheet') Back
