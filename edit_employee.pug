@@ -1,0 +1,32 @@
+extends admin-header
+
+block content
+  .container
+    h1 #{title}
+    .container
+      form(method='post', action='/employees/edit/'+employee._id)
+        .form-group
+          label User ID
+          input.form-control(type='text', name='userid', value=employee.userid)
+        .form-group
+          label Password
+          input.form-control(type='password', name='password', value=employee.password)
+        .form-group
+          label Full Name
+          input.form-control(type='text', name='name', value=employee.name)
+        .form-group
+          label Address
+          input.form-control(type='textarea', name='address', value=employee.address)
+        .form-group
+          label Email
+          input.form-control(type='email', name='email', value=employee.email)
+        .form-group
+          label Job Title
+          input.form-control(type='text', name='jobtitle', value=employee.title)
+        .form-group
+          label Salary
+          input.form-control(type='text', name='salary', value=employee.salary)
+        button.btn.btn-primary(type='submit') Edit
+        a.btn.btn-default(href='/manage_employees') Back
+        a.btn.btn-danger.employee-delete.pull-right(href='/manage_employees',data-cat-id=employee._id) Delete
+    br
