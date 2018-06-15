@@ -1,0 +1,42 @@
+extends admin-header
+
+block content
+  .container
+    h1 #{title}
+    .container
+      form(method='post', action='/projects/edit/'+project._id)
+        .form-group
+          label Title
+          input.form-control(type='text', name='title', value=project.title)
+        .form-group
+          label Budget
+          input.form-control(type='text', name='budget', value=project.budget)
+        .form-group
+          label Customer
+          input.form-control(type='text', name='customer', value=project.customer)
+        .form-group
+          label Update Supervisor
+          select(name='select_supervisor' value=project.sup)
+            option(value=project.sup) #{project.sup}-current
+            each employee, i in employees
+              option(value=employee.name) #{employee.name}
+        .form-group
+          label Current Employees
+          table(class='table table-striped')
+            tr
+              th Employee Full Name
+              th
+            each pro in list_emps
+              tr
+                td #{pro.empname}
+                td
+                  a.btn.btn-danger.emp-delete.pull-right(href='/manage_projects',data-emp-id=pro.empid) Delete
+        .form-group
+          label Add Other Employees
+          select(name='select_other_emps' multiple='')
+            each rem_employee, i in rem_emps
+              option(value=rem_employee) #{rem_employee}
+        button.btn.btn-primary(type='submit') Edit
+        a.btn.btn-danger.pull-right(href='/manage_projects') Back
+        a.btn.btn-danger.project-delete.pull-right(href='/manage_projects',data-pro-id=project._id) Delete
+    br
