@@ -1,0 +1,24 @@
+extends sup_header
+block content
+  h1 Cannot Edit this TimeSheet
+  u Timesheet
+  .container
+    form(method='post', action='/timesheets/sup/edit/'+sheet._id)
+      .form-group
+        h1
+          label Employee Name:
+        input.form-control(type='text', name='emp_name',value = sheet.empname,readonly = 'true')
+        h1
+          label Employee Project
+        input.form-control(type='text', name='emp_project',value = sheet.projecttitle,readonly = 'true')
+        h1
+          label Select Date
+        input.form-control(type='date', name='timesheet_date',required='true',value = sheet.date,readonly = 'true')
+        h1
+          label From Time:
+        input.form-control(type='time', name='timesheet_from_date',required='true',value= sheet.fromtime , readonly = 'true')
+        h1
+          label To Time:
+        input.form-control(type='time', name='timesheet_to_date',required='true',value = sheet.totime,readonly = 'true')
+
+      a.btn.btn-default(href='/get_sup_timesheets') Back
