@@ -1,0 +1,15 @@
+extends emp_header
+block content
+
+  h1 Welcome #{title} ,Logged in as Employee
+  h1
+  h2(align = 'center') Employee
+  .container
+    ul
+      li
+        a.btn.btn-info(href='/manage_emp_timesheet', role='button') Add TimeSheet
+        br
+        br
+
+      li
+        a.btn.btn-info(href='/get_my_timesheets', role='button') Manage Timesheets
