@@ -1,0 +1,27 @@
+extends sup_header
+block content
+  .container
+    h1 Manage Timesheets of projects
+    script.
+      function myFunction()
+      {
+         console.log("hello");
+      }
+    table(class='table table-striped' , id = 'table')
+      tr
+        td Name
+        td Project
+        td Date
+        td From
+        td To
+      each sheet, i in timesheets
+        tr
+          td #{sheet.empname}
+          td #{sheet.projecttitle}
+          td #{sheet.date}
+          td #{sheet.fromtime}
+          td #{sheet.totime}
+          td
+            a(class="btn btn-tiny btn-default"  href='/manage_timesheets/sup/edit/'+sheet._id ) Edit
+            //a(class="btn btn-tiny btn-default" href='/manage_timesheets/emp/edit/'+sheet._id ,onclick = 'seeError(sheet)') edit
+    a.btn.btn-default(href='/sup_home') Back
