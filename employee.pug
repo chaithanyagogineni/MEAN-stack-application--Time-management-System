@@ -1,0 +1,17 @@
+extends emp_header
+
+block content
+  h1 Welcome #{title}
+  u Timesheet
+  .container
+    form(method='post', action='/manage_timesheet')
+      .form-group
+        h1
+          label Select Project
+        select(name='select_project')
+          each pro, i in projects
+            option(value=pro.name) #{pro.title}
+        h1
+          label Select Date
+        input.form-control(type='date', name='timesheet_date')
+      button.btn.btn-primary(type='submit') Manage TimeSheet
