@@ -1,0 +1,17 @@
+extends admin-header
+
+block content
+  u Timesheet
+  .container
+    form(method='post', action='/manage_admin_timesheet')
+      .form-group
+        h1
+          label Select Project
+        select(name='select_project',required='true')
+          each pro, i in empsproj
+            option(value=pro.title) #{pro.title}
+        h1
+          label Select Date
+        input.form-control(type='date', name='timesheet_date',required='true',max = '2018-05-01')
+      button.btn.btn-primary(type='submit') Manage TimeSheet
+      a.btn.btn-default(href='/') Back
