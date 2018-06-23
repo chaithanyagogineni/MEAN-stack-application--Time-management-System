@@ -1,0 +1,34 @@
+extends emp_header
+
+block content
+  u Timesheet
+  .container
+    script.
+      var today = new Date()
+
+      console.log(document.getElementById('time_date'))
+      console.log(today.toISOString().slice(0,10))
+      function myFunction(x){
+
+      console.log(document.getElementById(x))
+      document.getElementById(x).max = new Date().toISOString().slice(0,10);
+
+      }
+    form(method='post', action='/manage_emp_timesheet')
+      .form-group
+        h1
+          label Select Project
+        select(name='select_project',required='true')
+          each pro, i in empsproj
+            option(value=pro.title) #{pro.title}
+        h1
+          label Select Date
+        input.form-control(type='date', name='timesheet_date',required='true',id = 'time_date',max = '2018-05-01',onfocus="myFunction(this.id)")
+        h1
+          label From Time:
+        input.form-control(type='time', name='timesheet_from_date',required='true')
+        h1
+          label To Time:
+        input.form-control(type='time', name='timesheet_to_date',required='true')
+      button.btn.btn-primary(type='submit') Manage TimeSheet
+      a.btn.btn-default(href='/emp_home') Back
