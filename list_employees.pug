@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  .container
+    h1 Select Employee
+    form(method='post', action='/selected_employees')
+      .form-group
+        select(name='select_employee',multiple='')
+          each employee, i in employees
+            option(value=employee.name) #{employee.name}
+      button.btn.btn-primary(type='submit') Select
