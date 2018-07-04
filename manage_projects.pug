@@ -1,0 +1,23 @@
+extends admin-header
+
+block content
+  .container
+    h1 #{title}
+    table(class='table table-striped')
+      tr
+        th Project Title
+        th
+        th Customer
+        th
+        th Budget
+        th
+      each project, i in projects
+        tr
+          td #{project.title}
+          td
+          td #{project.customer}
+          td
+          td #{project.budget}
+          td
+            a(class="btn btn-tiny btn-default" href='/manage_projects/projects/edit/'+project._id) edit
+    a.btn.btn-danger.pull-right(href='/') Back
