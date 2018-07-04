@@ -1,0 +1,20 @@
+extends admin-header
+
+block content
+  .container
+    h1 #{title}
+    table(class='table table-striped')
+      tr
+        td Full Name
+        td Job Title
+        td Email
+        td Salary
+      each employee, i in employees
+        tr
+          td #{employee.name}
+          td #{employee.title}
+          td #{employee.email}
+          td #{employee.salary}
+          td
+            a(class="btn btn-tiny btn-default" href='/manage_employees/employees/edit/'+employee._id) edit
+    a.btn.btn-danger.pull-right(href='/') Back
