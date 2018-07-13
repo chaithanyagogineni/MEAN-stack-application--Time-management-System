@@ -1,0 +1,29 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  body
+    nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          a.navbar-brand(href='#') Time Management System
+        ul.nav.navbar-nav
+          li.active
+            a(href='/sup_home') Home
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='/login')
+              span.glyphicon.glyphicon-log-out
+              |  Logout
+  body
+    block content
+    hr
+    footer
+      .container
+        Copyright &copy;2018,TMS APP
+      script(src='/bower_components/jquery/dist/jquery.js')
+      script(src='/bower_components/main.js')
