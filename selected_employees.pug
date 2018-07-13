@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .container
+    h1 Selected Employees
+    table(class='table table-striped')
+      each e, i in se
+        tr
+          td #{e}
+          
