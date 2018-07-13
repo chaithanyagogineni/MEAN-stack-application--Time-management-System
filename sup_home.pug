@@ -1,0 +1,20 @@
+extends sup_header
+block content
+
+  h1 Welcome #{title} ,Logged in as supervisor
+  h1
+  u Supervisor
+    .container
+      ul
+        li
+          a.btn.btn-info(href='/manage_sup_timesheet', role='button') Add TimeSheet
+        br
+        li
+          a.btn.btn-info(href='/get_sup_timesheets', role='button') Manage Timesheets
+        br
+        li
+          a.btn.btn-info(href='/manage_sup_projects', role='button') Manage Projects
+        br
+        li
+          a.btn.btn-info(href='/sup_get_summary', role='button') Get Summary Reports
+        br
