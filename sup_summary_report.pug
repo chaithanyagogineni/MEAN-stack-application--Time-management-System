@@ -1,0 +1,69 @@
+extends sup_header
+block content
+  .container
+    h1 All Timesheets of #{title}
+    script.
+      function myFunction()
+        {
+          var input, filter, table, tr, td, i;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[0];
+          if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+          }
+           else
+            {
+            tr[i].style.display = "none";
+            }
+            }
+            }
+          }
+      function myFunction2()
+        {
+          var input, filter, table, tr, td, i;
+          input = document.getElementById("myInput2");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+
+              // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td")[1];
+          if (td) {
+          if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+          }
+          else
+          {
+            tr[i].style.display = "none";
+          }
+        }
+          }
+        }
+
+    input#myInput(type='text', onkeyup='myFunction()', placeholder='Search for names..')
+    input#myInput2(type='text', onkeyup='myFunction2()', placeholder='Search for projects..')
+    table(class='table table-striped',id = "myTable")
+      tr
+        td Name
+        td Project
+        td Date
+        td From
+        td To
+      each sheet, i in sheets
+        tr
+          td #{sheet.empname}
+          td #{sheet.projecttitle}
+          td #{sheet.date}
+          td #{sheet.fromtime}
+          td #{sheet.totime}
+          td
+            a(class="btn btn-tiny btn-default" href='/manage_timesheets/edit/sup/'+sheet._id) edit
+    a.btn.btn-danger.pull-right(href='/sup_home') Back
