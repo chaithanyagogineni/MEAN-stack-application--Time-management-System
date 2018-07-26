@@ -1,0 +1,26 @@
+extends sup_header
+block content
+  script.
+    $('#button.bdsubmit').click(function() {
+    console.log($('#from_date').val())
+    })
+  .container
+    h1 #{title}
+    .container
+      form(action = '/sup_get_summary' ,method = 'post')
+        .form-group
+          h1
+            label Select Project
+          select(name='select_project')
+            each pro, i in projects
+              option(value=pro.title) #{pro.title}
+        .form-group
+          h1
+            label Select Category
+          select(name='select_project')
+            option(value="Daily") Daily
+            option(value="Weekly") Weekly
+            option(value="Monthly") Monthly
+            option(value="DateRange") Date Range
+
+        button(id = 'bdsubmit',type='submit') Generate
