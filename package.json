@@ -1,0 +1,29 @@
+{
+  "name": "tmsapp",
+  "version": "1.0.0",
+  "description": "Time and Attendance Management System",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node app"
+  },
+  "author": "chaithanya krishna",
+  "license": "ISC",
+  "dependencies":{
+    "express":"*",
+    "body-parser":"*",
+    "mongoose":"*",
+    "express-messages":"*",
+    "express-validator":"*",
+    "pug":"*",
+    "connect-flash":"*",
+    "express-session":"*",
+    "passport":"*",
+    "passport-http":"*",
+    "passport-local":"*",
+    "bcryptjs":"*",
+    "connect":"*",
+    "dialog":"*"
+
+  }
+}
